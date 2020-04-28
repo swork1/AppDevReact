@@ -1,0 +1,23 @@
+{
+  "name": "testreact",
+  "version": "1.0.0",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.4.1",
+    "express": "^4.16.4",
+    "jquery": "^3.5.0",
+    "jwt-simple": "^0.5.6",
+    "mysql": "^2.18.1",
+    "popper.js": "^1.16.1",
+    "react-bootstrap": "^1.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.2"
+  }
+}

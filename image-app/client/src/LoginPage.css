@@ -1,0 +1,59 @@
+#header {
+  text-align: center;
+}
+
+#loginForm {
+  max-width: 600px;
+  height: 500px;
+}
+
+html {
+  background-color: #ffe39f;
+}
+
+#loginFormCard {
+  height: 300px;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+input:focus {
+  border-color: transparent !important;
+}
+
+#loginBtn {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: #d3d3d3;
+  min-width: 100px;
+}
+
+#loginBtn:hover {
+  cursor: pointer;
+  background-color: #ffe39f;
+}
+
+#username {
+  margin: 15px auto;
+  text-align: center;
+  max-width: 400px;
+  display: block;
+}
+
+#password {
+  margin: 15px auto;
+  text-align: center;
+  max-width: 400px;
+  display: block;
+}
+
+#noAcc {
+  font-size: 14px;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+}
