@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./LoginPage.css";
 import $ from "jquery";
 import { Alert } from "react-bootstrap";
+import "./LoginPage.css";
 
 function LoginPage() {
   // Javascript file auth.js
@@ -43,10 +43,10 @@ function LoginPage() {
     <div>
       <div className="container" id="loginForm">
         <div className="card border-success mt-5" id="loginFormCard">
-          <h1 id="header" className="card-header">
+          <h1 id="loginHeader" className="card-header">
             Login
           </h1>
-          <div className="card-body">
+          <div className="card-body" id="loginFormBody">
             <div className="form-group">
               <form id="target">
                 <input
@@ -74,7 +74,7 @@ function LoginPage() {
 
               <h3 className="card-header" id="noAcc">
                 Don't have an account?{" "}
-                <Link to="/Contact"> Create an account </Link>{" "}
+                <Link to="/create"> Create an account </Link>{" "}
               </h3>
             </div>
           </div>

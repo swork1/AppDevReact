@@ -1,15 +1,16 @@
-#loginHeader {
+#createHeader {
   text-align: center;
   background-color: #fde1c7;
 }
 
-#loginForm {
+#createForm {
   max-width: 600px;
   height: 500px;
   text-align: center;
 }
-#loginFormCard {
-  height: 300px;
+
+#createFormCard {
+  height: 400px;
   background-color: whitesmoke;
 }
 
@@ -22,7 +23,7 @@ input:focus {
   border-color: transparent !important;
 }
 
-#loginBtn {
+#createBtn {
   display: block;
   margin: 0 auto;
   margin-top: 20px;
@@ -30,7 +31,7 @@ input:focus {
   min-width: 100px;
 }
 
-#loginBtn:hover {
+#createBtn:hover {
   cursor: pointer;
   background-color: #ffe39f;
 }
@@ -45,7 +46,26 @@ input:focus {
   font-weight: bold;
 }
 
+#firstName,
+#lastName {
+  display: inline-block;
+  max-width: 200px;
+  text-align: center;
+  background-color: rgb(216, 213, 213);
+  font-weight: bold;
+}
+
+#firstName {
+  margin: 15px 15px 15px auto;
+}
+#lastName {
+  margin: 15px auto 15px 15px;
+}
 @media only screen and (max-width: 550px) {
+  #firstName,
+  #lastName {
+    margin: 5px auto;
+  }
   #username,
   #password {
     margin: 5px auto;
@@ -54,12 +74,13 @@ input:focus {
     font-size: 30px;
   }
 }
-#noAcc {
+
+#haveAcc {
   font-size: 14px;
   text-align: center;
   background-color: transparent;
   border: none;
 }
-#loginFormBody {
+#createFormBody {
   padding: 0;
 }

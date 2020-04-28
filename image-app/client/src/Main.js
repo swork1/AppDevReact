@@ -3,6 +3,7 @@ import { Route, NavLink, HashRouter } from "react-router-dom";
 import Home from "./Home";
 import Contact from "./Contact";
 import LoginPage from "./LoginPage";
+import CreatePage from "./CreatePage";
 
 function Main() {
   return (
@@ -21,6 +22,7 @@ function Main() {
         <div className="content">
           <Route path="/home" component={Home} />
           <Route path="/contact" component={Contact} />
+          <Route path="/create" component={CreatePage} />
           <Route exact path="/" component={LoginPage} />
         </div>
       </div>
