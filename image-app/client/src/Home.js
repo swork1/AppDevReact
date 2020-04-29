@@ -37,17 +37,16 @@ function Home() {
   const [result, loaded] = HandleSubmit(query);
 
   return (
-    <div className="App">
-      <header className="App-header">Header</header>
+    <div className='App'>
+      <header className='App-header'>Header</header>
       <p>Test Post Call</p>
       <form
         onSubmit={(e) => {
           e.preventDefault();
           setQuery(search);
-        }}
-      >
-        <input type="text" onChange={(e) => setSearch(e.target.value)} />
-        <input type="submit" value="Submit" />
+        }}>
+        <input type='text' onChange={(e) => setSearch(e.target.value)} />
+        <input type='submit' value='Submit' />
       </form>
 
       {loaded === false ? <p>Enter something to test</p> : <p>{result}</p>}

@@ -23,13 +23,13 @@ router.post("/user", (req, res) => {
       date_created: new Date(),
       admin: true,
     };
-
+    console.log(newuser);
     //Insert user into SQL table
     SQL.query("INSERT INTO user SET ?", newuser, function (err, result) {
       if (err) {
-        res.status(400).send(err);
+        res.status(409).send(err);
       } else {
-        res.redirect("/login.html");
+        res.send(true);
       }
     });
   });

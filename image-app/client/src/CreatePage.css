@@ -70,7 +70,7 @@ input:focus {
   #password {
     margin: 5px auto;
   }
-  #header {
+  #createHeader {
     font-size: 30px;
   }
 }

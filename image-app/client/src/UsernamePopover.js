@@ -3,7 +3,7 @@ import { Tooltip } from "react-bootstrap";
 
 function UsernamePopover(props) {
   return (
-    <Tooltip id="button-tooltip" {...props}>
+    <Tooltip id='button-tooltip' {...props}>
       Enter email i.e. example@google.com
     </Tooltip>
   );

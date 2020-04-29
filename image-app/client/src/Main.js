@@ -9,21 +9,21 @@ function Main() {
   return (
     <HashRouter>
       <div>
-        <ul className="header">
+        <ul className='header'>
           <li>
-            <NavLink exact to="/">
+            <NavLink exact to='/'>
               Login
             </NavLink>
           </li>
           <li>
-            <NavLink to="/home">Home</NavLink>
+            <NavLink to='/home'>Home</NavLink>
           </li>
         </ul>
-        <div className="content">
-          <Route path="/home" component={Home} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/create" component={CreatePage} />
-          <Route exact path="/" component={LoginPage} />
+        <div className='content'>
+          <Route path='/home' component={Home} />
+          <Route path='/contact' component={Contact} />
+          <Route path='/create' component={CreatePage} />
+          <Route exact path='/' component={LoginPage} />
         </div>
       </div>
     </HashRouter>
