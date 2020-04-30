@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
+import axios from "axios";
 import { Alert } from "react-bootstrap";
 import "./CreatePage.css";
 
@@ -17,18 +18,20 @@ function CreatePage() {
         firstName: firstName,
         lastName: lastName,
       };
-      console.log(requestData);
-      $.post("/api/user", requestData, function (data) {
-        if (data === true) {
-          window.location.href = "http://localhost:3000/#/login";
-        } else {
-          setError(true);
+      axios
+        .post("/api/user", requestData)
+        .then((res) => {
+          if (res.data === true) {
+            window.location.href = "http://localhost:3000/#/login";
+          } else {
+            setError(true);
+            setShow(true);
+          }
+        })
+        .catch((error) => {
+          setDup(true);
           setShow(true);
-        }
-      }).fail(function () {
-        setDup(true);
-        setShow(true);
-      });
+        });
     }
 
     $("#form").submit(function (e) {

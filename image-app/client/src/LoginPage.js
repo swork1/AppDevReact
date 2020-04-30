@@ -1,15 +1,11 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
+import axios from "axios";
 import { Alert } from "react-bootstrap";
 import "./LoginPage.css";
 
 function LoginPage() {
-  // Javascript file auth.js
-  // Uses Ajax to login user. Saves token to local storage then gets token to authorize user.
-  // Created 2/20/20
-  // Author : Seth Workman
-
   const [error, setError] = React.useState(false);
   const [badUorP, setBadUorP] = React.useState(false);
   const [show, setShow] = React.useState(false);
@@ -17,20 +13,22 @@ function LoginPage() {
   useEffect(() => {
     function login(username, password) {
       var requestData = { username: username, password: password };
-      $.post("/api/auth", requestData, function (data) {
-        if (data.token) {
-          // Store token in local storage
-          window.localStorage.setItem("token", data.token);
-          window.location.href = "http://localhost:3000/#/home";
-        } else {
-          setError(true);
+      axios
+        .post("/api/auth", requestData)
+        .then((res) => {
+          if (res.data.token) {
+            // Store token in local storage
+            window.localStorage.setItem("token", res.data.token);
+            window.location.href = "http://localhost:3000/#/home";
+          } else {
+            setError(true);
+            setShow(true);
+          }
+        })
+        .catch((error) => {
+          setBadUorP(true);
           setShow(true);
-          console.log("error");
-        }
-      }).fail(function () {
-        setBadUorP(true);
-        setShow(true);
-      });
+        });
     }
 
     $("#target").submit(function (e) {
