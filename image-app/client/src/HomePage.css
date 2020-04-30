@@ -1,0 +1,64 @@
+#logoutBtn {
+  background-color: orangered;
+  display: block;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+}
+
+.col-md-4 {
+  height: auto;
+}
+
+.thumbnail {
+  margin-bottom: 5%;
+}
+
+img {
+  border-bottom: none;
+  border-top: 4px solid white;
+  border-right: 4px solid white;
+  border-left: 4px solid white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 0;
+}
+
+.imgText {
+  color: orangered;
+  font-size: 25px;
+  text-align: center;
+}
+
+.caption {
+  border-top: none;
+  border-bottom: 4px solid white;
+  border-right: 4px solid white;
+  border-left: 4px solid white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: white;
+  padding-top: 15px;
+}
+
+.imgText:hover {
+  text-decoration: none;
+  color: orangered;
+}
+
+#title {
+  text-align: center;
+}
+
+#imgBackBtn {
+  background-color: orangered;
+  margin-bottom: 5%;
+}
+
+#uploadBtn {
+  background-color: orangered;
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+}

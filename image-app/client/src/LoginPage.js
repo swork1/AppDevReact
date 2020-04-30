@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import $ from "jquery";
+import React from "react";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { Alert } from "react-bootstrap";
 import "./LoginPage.css";
@@ -9,33 +8,30 @@ function LoginPage() {
   const [error, setError] = React.useState(false);
   const [badUorP, setBadUorP] = React.useState(false);
   const [show, setShow] = React.useState(false);
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
-  useEffect(() => {
-    function login(username, password) {
-      var requestData = { username: username, password: password };
-      axios
-        .post("/api/auth", requestData)
-        .then((res) => {
-          if (res.data.token) {
-            // Store token in local storage
-            window.localStorage.setItem("token", res.data.token);
-            window.location.href = "http://localhost:3000/#/home";
-          } else {
-            setError(true);
-            setShow(true);
-          }
-        })
-        .catch((error) => {
-          setBadUorP(true);
+  let history = useHistory();
+
+  const login = (event) => {
+    event.preventDefault();
+    var requestData = { username: username, password: password };
+    axios
+      .post("/api/auth", requestData)
+      .then((res) => {
+        if (res.data.token) {
+          window.localStorage.setItem("token", res.data.token);
+          history.push("/home");
+        } else {
+          setError(true);
           setShow(true);
-        });
-    }
-
-    $("#target").submit(function (e) {
-      login($("#username").val(), $("#password").val());
-      e.preventDefault();
-    });
-  }, []);
+        }
+      })
+      .catch((error) => {
+        setBadUorP(true);
+        setShow(true);
+      });
+  };
 
   return (
     <div>
@@ -46,13 +42,14 @@ function LoginPage() {
           </h1>
           <div className='card-body' id='loginFormBody'>
             <div className='form-group'>
-              <form id='target'>
+              <form id='target' onSubmit={login}>
                 <input
                   className='form-control'
                   type='email'
                   name='username'
                   id='username'
                   placeholder='Email'
+                  onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
                   className='form-control'
@@ -60,8 +57,8 @@ function LoginPage() {
                   name='password'
                   id='password'
                   placeholder='Password'
+                  onChange={(e) => setPassword(e.target.value)}
                 />
-
                 <input
                   className='btn mt-3'
                   type='submit'
