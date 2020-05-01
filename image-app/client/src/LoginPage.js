@@ -23,12 +23,12 @@ function LoginPage() {
           window.localStorage.setItem("token", res.data.token);
           history.push("/home");
         } else {
-          setError(true);
+          setBadUorP(true);
           setShow(true);
         }
       })
       .catch((error) => {
-        setBadUorP(true);
+        setError(true);
         setShow(true);
       });
   };
@@ -83,15 +83,13 @@ function LoginPage() {
             </p>
           </Alert>
         ) : error === true && show === true ? (
-          <p>
-            <Alert variant='danger' onClose={() => setShow(false)} dismissible>
-              <Alert.Heading>Oh snap!</Alert.Heading>
-              <p>
-                Looks like there was a server error. Try logging in after a
-                couple minutes
-              </p>
-            </Alert>
-          </p>
+          <Alert variant='danger' onClose={() => setShow(false)} dismissible>
+            <Alert.Heading>Oh snap!</Alert.Heading>
+            <p>
+              Looks like there was a server error. Try logging in after a couple
+              minutes
+            </p>
+          </Alert>
         ) : (
           <p hidden> no errors </p>
         )}
