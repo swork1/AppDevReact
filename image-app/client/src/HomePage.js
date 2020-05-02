@@ -40,14 +40,15 @@ function HomePage() {
   function setImages(username) {
     // load the image information from the database
     // Change for thumbnails?
-    $.get("/api/images", (data) => {
+    axios.get("/api/images").then((res) => {
       let html = "";
       let col0html = "";
       let col1html = "";
       let col2html = "";
       let k = 0;
-      var imgData = data;
+      var data = res.data;
       let imgNum = 0;
+
       //build a card for each image
       for (var i = 0; i < data.length; i++) {
         //Gets username specific images
@@ -71,9 +72,7 @@ function HomePage() {
             filename +
             '"> \n' +
             '<div class="caption">' +
-            "<p>" +
             data[i].photo_name +
-            "</p>" +
             "</div>" +
             "</a> \n" +
             "</div>" +
@@ -110,7 +109,7 @@ function HomePage() {
           }
         }
       }
-      imgInfo(imgData, username);
+      imgInfo(data, username);
     });
   }
 
@@ -126,7 +125,7 @@ function HomePage() {
             '<div class = "container">' +
             '<div class="card border-success mt-5">' +
             '<div class="card-body">' +
-            '<a href="home.html" class="btn btn-info btn-lg" id ="imgBackBtn"> <span class="glyphicon glyphicon-log-out"></span> Go Back To Photo Gallery </a>' +
+            '<a href="http://localhost:3000/#/home/" class="btn btn-info btn-lg" id ="imgBackBtn"> <span class="glyphicon glyphicon-log-out"></span> Go Back To Photo Gallery </a>' +
             '<img style="width:100%" src="images/' +
             imgData[this.dataset.imgnum].path +
             "/" +
@@ -172,16 +171,18 @@ function HomePage() {
 
   return (
     <div>
-      <div>
+      <div id='logoutBtnDiv'>
         <Link to='/' className='btn btn-info btn-lg' id='logoutBtn'>
           <span className='glyphicon glyphicon-log-out'></span> Log out
         </Link>
       </div>
 
-      <Link to='/upload' className='btn btn-info btn-lg' id='uploadBtn'>
-        {" "}
-        <span className='glyphicon glyphicon-log-out'></span> Upload
-      </Link>
+      <div id='uploadBtnDiv'>
+        <Link to='/upload' className='btn btn-info btn-lg' id='uploadBtnLink'>
+          {" "}
+          <span className='glyphicon glyphicon-log-out'></span> Upload
+        </Link>
+      </div>
 
       <div className='container'>
         <div className='card border-success mt-5' id='pageTitle'>

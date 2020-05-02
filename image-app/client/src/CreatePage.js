@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { Alert } from "react-bootstrap";
@@ -51,7 +51,6 @@ function CreatePage() {
                 <input
                   className='form-control'
                   type='email'
-                  name='username'
                   id='username'
                   placeholder='Enter Valid Email Address'
                   required='required'
@@ -60,7 +59,6 @@ function CreatePage() {
                 <input
                   className='form-control'
                   type='password'
-                  name='password'
                   id='password'
                   placeholder='Enter Password'
                   required='required'
@@ -69,7 +67,6 @@ function CreatePage() {
                 <input
                   className='form-control'
                   type='text'
-                  name='firstName'
                   id='firstName'
                   placeholder='Enter First Name'
                   required='required'
@@ -78,7 +75,6 @@ function CreatePage() {
                 <input
                   className='form-control'
                   type='text'
-                  name='lastName'
                   id='lastName'
                   placeholder='Enter Last Name'
                   required='required'

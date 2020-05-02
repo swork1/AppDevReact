@@ -46,7 +46,6 @@ function LoginPage() {
                 <input
                   className='form-control'
                   type='email'
-                  name='username'
                   id='username'
                   placeholder='Email'
                   onChange={(e) => setUsername(e.target.value)}
@@ -54,7 +53,6 @@ function LoginPage() {
                 <input
                   className='form-control'
                   type='password'
-                  name='password'
                   id='password'
                   placeholder='Password'
                   onChange={(e) => setPassword(e.target.value)}

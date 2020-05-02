@@ -55,7 +55,7 @@ router.get("/", function (req, res) {
   });
 });
 
-// Add a new image to the database
+/// Add a new image to the database
 router.post("/", upload.single("photo"), (req, res) => {
   // log the file upload to console
   if (req.file) {
@@ -99,7 +99,7 @@ router.post("/", upload.single("photo"), (req, res) => {
           console.log("Error", e.toString());
         });
 
-      res.redirect("/home.html");
+      res.redirect("/#/home");
     }
   });
 });
