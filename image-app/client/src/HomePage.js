@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import $ from "jquery";
 import "./HomePage.css";
 import axios from "axios";
 
 function HomePage() {
+  let history = useHistory();
+
   useEffect(() => {
-    function displayStatus() {
+    function authenticate() {
       var token = window.localStorage.getItem("token");
 
       axios
@@ -21,14 +23,14 @@ function HomePage() {
               'You are not allowed to access this page. Click "ok" or "cancel" to return to the login page.'
             )
           ) {
-            window.location.href = "/login.html";
+            history.push("/");
           } else {
-            window.location.href = "/login.html";
+            history.push("/");
           }
         });
     }
 
-    displayStatus();
+    authenticate();
 
     $("#logoutBtn").click(function () {
       window.localStorage.removeItem("token");

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import $ from "jquery";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { Alert } from "react-bootstrap";
 import "./CreatePage.css";
@@ -9,41 +8,35 @@ function CreatePage() {
   const [error, setError] = React.useState(false);
   const [dup, setDup] = React.useState(false);
   const [show, setShow] = React.useState(false);
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  let history = useHistory();
 
-  useEffect(() => {
-    function create(username, password, firstName, lastName) {
-      var requestData = {
-        username: username,
-        password: password,
-        firstName: firstName,
-        lastName: lastName,
-      };
-      axios
-        .post("/api/user", requestData)
-        .then((res) => {
-          if (res.data === true) {
-            window.location.href = "http://localhost:3000/#/login";
-          } else {
-            setError(true);
-            setShow(true);
-          }
-        })
-        .catch((error) => {
-          setDup(true);
+  const create = (e) => {
+    e.preventDefault();
+    var requestData = {
+      username: username,
+      password: password,
+      firstName: firstName,
+      lastName: lastName,
+    };
+    axios
+      .post("/api/user", requestData)
+      .then((res) => {
+        if (res.data === true) {
+          history.push("/");
+        } else {
+          setError(true);
           setShow(true);
-        });
-    }
-
-    $("#form").submit(function (e) {
-      e.preventDefault();
-      create(
-        $("#username").val(),
-        $("#password").val(),
-        $("#firstName").val(),
-        $("#lastName").val()
-      );
-    });
-  }, []);
+        }
+      })
+      .catch((error) => {
+        setDup(true);
+        setShow(true);
+      });
+  };
 
   return (
     <div>
@@ -54,7 +47,7 @@ function CreatePage() {
           </h1>
           <div className='card-body' id='createFormBody'>
             <div className='form-group'>
-              <form id='form'>
+              <form id='form' onSubmit={create}>
                 <input
                   className='form-control'
                   type='email'
@@ -62,6 +55,7 @@ function CreatePage() {
                   id='username'
                   placeholder='Enter Valid Email Address'
                   required='required'
+                  onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
                   className='form-control'
@@ -70,6 +64,7 @@ function CreatePage() {
                   id='password'
                   placeholder='Enter Password'
                   required='required'
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 <input
                   className='form-control'
@@ -78,6 +73,7 @@ function CreatePage() {
                   id='firstName'
                   placeholder='Enter First Name'
                   required='required'
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
                 <input
                   className='form-control'
@@ -86,6 +82,7 @@ function CreatePage() {
                   id='lastName'
                   placeholder='Enter Last Name'
                   required='required'
+                  onChange={(e) => setLastName(e.target.value)}
                 />
                 <input
                   className='btn mt-3'

@@ -1,51 +1,44 @@
-import React from "react";
-import $ from "jquery";
+import React, { useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import "./UploadPage.css";
+import axios from "axios";
 
 function UploadPage() {
-  $(function () {
-    function displayStatus() {
-      // Get the token from localStorage
+  let history = useHistory();
+
+  useEffect(() => {
+    //Function that authenticates user by checking if token is valid
+    function authenticate() {
       var token = window.localStorage.getItem("token");
 
-      $.ajax({
-        url: "api/status",
-        type: "GET",
-        headers: { "X-Auth": token },
-      })
-        .done(function (data) {
-          //set username to user logged in
-          var username = data.uid;
-          //update username
-          updateUsername(username);
+      axios
+        .get("api/status", { headers: { "X-Auth": token } })
+        .then((res) => {
+          var username = res.data.uid;
+          document.getElementById("username").value = username;
         })
-        .fail(function (jqXHR) {
-          //gives user alert that they will be redirected.
+        .catch((error) => {
           if (
             window.confirm(
               'You are not allowed to access this page. Click "ok" or "cancel" to return to the login page.'
             )
           ) {
-            window.location.href = "/login.html";
+            history.push("/");
+          } else {
+            history.push("/");
           }
-          window.location.href = "/login.html";
-          $("#errorMsg").html(jqXHR.responseJSON.error);
         });
     }
 
-    displayStatus();
-
-    function updateUsername(user) {
-      //set username value to user
-      $("#username").val(user);
-    }
+    authenticate();
   });
+
   return (
     <div>
       <div>
-        <a href='home.html' className='btn btn-info btn-lg' id='homeBtn'>
+        <Link to='/home' className='btn btn-info btn-lg' id='homeBtn'>
           <span className='glyphicon glyphicon-log-out'></span> Home
-        </a>
+        </Link>
       </div>
       <div className='container' id='uploadForm'>
         <div className='card border-success mt-5' id='uploadFormCard'>

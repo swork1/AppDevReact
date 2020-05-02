@@ -13,8 +13,8 @@ function LoginPage() {
 
   let history = useHistory();
 
-  const login = (event) => {
-    event.preventDefault();
+  const login = (e) => {
+    e.preventDefault();
     var requestData = { username: username, password: password };
     axios
       .post("/api/auth", requestData)
