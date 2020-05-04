@@ -1,9 +1,13 @@
 #logoutBtn {
-  background-color: orangered;
+  background-color: #ee7600;
   max-width: 125px;
   height: 50px;
 }
 
+#logoutBtn:hover {
+  cursor: pointer;
+  background-color: #ee77008e;
+}
 .col-md-4 {
   height: auto;
 }
@@ -49,14 +53,24 @@ img {
 }
 
 #imgBackBtn {
-  background-color: orangered;
+  background-color: #ea6459;
   margin-bottom: 5%;
 }
 
+#imgBackBtn:hover {
+  cursor: pointer;
+  background-color: #ea655993;
+}
+
 #uploadBtnLink {
-  background-color: orangered;
+  background-color: #a15fa9;
   width: 200px;
   height: 50px;
+}
+
+#uploadBtnLink:hover {
+  cursor: pointer;
+  background-color: #a25fa986;
 }
 
 #logoutBtnDiv {

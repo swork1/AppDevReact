@@ -35,101 +35,108 @@ function UploadPage() {
 
   return (
     <div>
-      <div>
-        <Link to='/home' className='btn btn-info btn-lg' id='homeBtn'>
-          <span className='glyphicon glyphicon-log-out'></span> Home
+      <div id="logoutBtnDiv">
+        <Link to="/" className="btn btn-info btn-lg" id="logoutBtn">
+          <span className="glyphicon glyphicon-log-out"></span> Log out
         </Link>
       </div>
-      <div className='container' id='uploadForm'>
-        <div className='card border-success mt-5' id='uploadFormCard'>
-          <h1 className='card-header' id='uploadHeader'>
+
+      <div id="homeBtnDiv">
+        <Link to="/home" className="btn btn-info btn-lg" id="homeBtn">
+          <span className="glyphicon glyphicon-log-out"></span> Home
+        </Link>
+      </div>
+      <div className="container" id="uploadForm">
+        <div className="card border-success mt-5" id="uploadFormCard">
+          <h1 className="card-header" id="uploadHeader">
             Upload Image
           </h1>
-          <div className='card-body' id='uploadFormBody'>
-            <div className='form-group'>
+          <div className="card-body" id="uploadFormBody">
+            <div className="form-group">
               <form
-                action='/api/images'
-                method='post'
-                encType='multipart/form-data'>
+                action="/api/images"
+                method="post"
+                encType="multipart/form-data"
+              >
                 <input
-                  className='form-control'
-                  type='hidden'
-                  name='username'
-                  id='username'
+                  className="form-control"
+                  type="hidden"
+                  name="username"
+                  id="username"
                 />
                 <input
-                  className='form-control-file'
-                  type='file'
-                  accept='image/*'
-                  name='photo'
-                  id='file'
-                  required='required'
+                  className="form-control-file"
+                  type="file"
+                  accept="image/*"
+                  name="photo"
+                  id="file"
+                  required="required"
                 />
                 <input
-                  className='form-control'
-                  type='text'
-                  name='photoName'
-                  id='photoName'
-                  required='required'
-                  placeholder='Photo Name'
+                  className="form-control"
+                  type="text"
+                  name="photoName"
+                  id="photoName"
+                  required="required"
+                  placeholder="Photo Name"
                 />
                 <input
-                  className='form-control'
-                  type='text'
-                  name='album'
-                  id='album'
-                  required='required'
-                  placeholder='Photo Album'
+                  className="form-control"
+                  type="text"
+                  name="album"
+                  id="album"
+                  required="required"
+                  placeholder="Photo Album"
                 />
                 <input
-                  className='form-control'
-                  type='text'
-                  name='description'
-                  id='description'
-                  required='required'
-                  placeholder='Description for Photo'
+                  className="form-control"
+                  type="text"
+                  name="description"
+                  id="description"
+                  required="required"
+                  placeholder="Description for Photo"
                 />
                 <input
-                  className='form-control'
-                  type='text'
-                  name='camera'
-                  id='camera'
-                  placeholder='Camera Used'
+                  className="form-control"
+                  type="text"
+                  name="camera"
+                  id="camera"
+                  placeholder="Camera Used"
                 />
                 <input
-                  className='form-control'
-                  type='text'
-                  name='fstop'
-                  id='fstop'
-                  placeholder='f-stop'
+                  className="form-control"
+                  type="text"
+                  name="fstop"
+                  id="fstop"
+                  placeholder="f-stop"
                 />
                 <input
-                  className='form-control'
-                  type='text'
-                  name='sspeed'
-                  id='sspeed'
-                  placeholder='s-speed'
+                  className="form-control"
+                  type="text"
+                  name="sspeed"
+                  id="sspeed"
+                  placeholder="s-speed"
                 />
                 <input
-                  className='form-control'
-                  type='text'
-                  name='iso'
-                  id='iso'
-                  placeholder='ISO'
+                  className="form-control"
+                  type="text"
+                  name="iso"
+                  id="iso"
+                  placeholder="ISO"
                 />
                 <input
-                  className='form-control'
-                  type='text'
-                  name='focal_length'
-                  id='focal_length'
-                  placeholder='Focal Length'
+                  className="form-control"
+                  type="text"
+                  name="focal_length"
+                  id="focal_length"
+                  placeholder="Focal Length"
                 />
 
                 <input
-                  className='btn mt-3'
-                  type='submit'
-                  value='Upload'
-                  id='uploadBtn'
+                  className="btn mt-3"
+                  type="submit"
+                  value="Upload"
+                  id="uploadBtn"
                 />
               </form>
             </div>

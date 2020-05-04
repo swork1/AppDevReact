@@ -83,8 +83,6 @@ router.post("/", upload.single("photo"), (req, res) => {
     if (err) {
       res.status(400).send(err);
     } else {
-      console.log(img.filename);
-      console.log(img);
       //Make a thumbnail version of the uploading image
       thumb({
         source: dir + "/" + img.filename,
