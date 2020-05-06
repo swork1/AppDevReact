@@ -2,6 +2,8 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { Alert } from "react-bootstrap";
+import PaddedTextField from "./PaddedTextField";
+import Button from "@material-ui/core/Button";
 import "./CreatePage.css";
 
 function CreatePage() {
@@ -48,37 +50,41 @@ function CreatePage() {
           <div className='card-body' id='createFormBody'>
             <div className='form-group'>
               <form id='form' onSubmit={create}>
-                <input
-                  className='form-control'
-                  type='email'
-                  id='username'
-                  placeholder='Enter Valid Email Address'
-                  required='required'
-                  onChange={(e) => setUsername(e.target.value)}
+                <PaddedTextField
+                  textFieldProps={{
+                    variant: "outlined",
+                    label: "Email",
+                    type: "email",
+                    required: true,
+                    onChange: (e) => setUsername(e.target.value),
+                  }}
                 />
-                <input
-                  className='form-control'
-                  type='password'
-                  id='password'
-                  placeholder='Enter Password'
-                  required='required'
-                  onChange={(e) => setPassword(e.target.value)}
+                <PaddedTextField
+                  textFieldProps={{
+                    variant: "outlined",
+                    label: "Password",
+                    type: "password",
+                    required: true,
+                    onChange: (e) => setPassword(e.target.value),
+                  }}
                 />
-                <input
-                  className='form-control'
-                  type='text'
-                  id='firstName'
-                  placeholder='Enter First Name'
-                  required='required'
-                  onChange={(e) => setFirstName(e.target.value)}
+                <PaddedTextField
+                  disableIsBlock
+                  textFieldProps={{
+                    variant: "outlined",
+                    label: "First Name",
+                    required: true,
+                    onChange: (e) => setFirstName(e.target.value),
+                  }}
                 />
-                <input
-                  className='form-control'
-                  type='text'
-                  id='lastName'
-                  placeholder='Enter Last Name'
-                  required='required'
-                  onChange={(e) => setLastName(e.target.value)}
+                <PaddedTextField
+                  disableIsBlock
+                  textFieldProps={{
+                    variant: "outlined",
+                    label: "Last Name",
+                    required: true,
+                    onChange: (e) => setLastName(e.target.value),
+                  }}
                 />
                 <input
                   className='btn mt-3'
@@ -86,10 +92,20 @@ function CreatePage() {
                   value='Create Account'
                   id='createBtn'
                 />
+                <label htmlFor='createBtn'>
+                  <Button variant='contained' color='default' component='span'>
+                    Create
+                  </Button>
+                </label>
               </form>
 
-              <h3 className='card-header' id='haveAcc'>
-                Already have an account? <Link to='/'> Login </Link>{" "}
+              <h3 className='card-header loginCreateAcc'>
+                Already have an account?
+                <Button color='primary'>
+                  <Link to='/' id='loginCreateLink'>
+                    Login
+                  </Link>
+                </Button>
               </h3>
             </div>
           </div>

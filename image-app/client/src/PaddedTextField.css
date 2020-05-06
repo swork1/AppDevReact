@@ -1,0 +1,11 @@
+.paddedTextFieldDiv {
+  margin: 0px 1em 1em 1em;
+}
+
+.inlineDiv {
+  display: inline-block;
+}
+
+.blockDiv {
+  display: block;
+}

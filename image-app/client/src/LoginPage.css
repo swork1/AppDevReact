@@ -12,46 +12,16 @@
   background-color: whitesmoke;
 }
 
-input {
-  outline: none;
-  border: none;
-}
-
-input:focus {
-  border-color: transparent !important;
-}
-
 #loginBtn {
-  display: block;
-  margin: 0 auto;
-  margin-top: 20px;
-  background-color: #d3d3d3;
-  min-width: 100px;
+  display: none;
 }
-
-#loginBtn:hover {
-  cursor: pointer;
-  background-color: #ffe39f;
-}
-
-#username,
-#password {
-  margin: 15px auto;
-  max-width: 300px;
-  display: block;
-  text-align: center;
-  background-color: rgb(216, 213, 213);
-  font-weight: bold;
-}
-
 @media only screen and (max-width: 550px) {
   #loginHeader {
     font-size: 30px;
   }
 }
-#noAcc {
-  font-size: 14px;
-  text-align: center;
-  background-color: transparent;
-  border: none;
+
+#loginCreateLink {
+  text-decoration: none;
+  color: inherit;
 }

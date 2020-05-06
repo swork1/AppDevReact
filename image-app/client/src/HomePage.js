@@ -171,36 +171,36 @@ function HomePage() {
 
   return (
     <div>
-      <div id="logoutBtnDiv">
-        <Link to="/" className="btn btn-info btn-lg" id="logoutBtn">
-          <span className="glyphicon glyphicon-log-out"></span> Log out
+      <div id='logoutBtnDiv'>
+        <Link to='/' className='btn btn-info btn-lg' id='logoutBtn'>
+          <span className='glyphicon glyphicon-log-out'></span> Log out
         </Link>
       </div>
 
-      <div id="uploadBtnDiv">
-        <Link to="/upload" className="btn btn-info btn-lg" id="uploadBtnLink">
+      <div id='uploadBtnDiv'>
+        <Link to='/upload' className='btn btn-info btn-lg' id='uploadBtnLink'>
           {" "}
-          <span className="glyphicon glyphicon-log-out"></span> Upload
+          <span className='glyphicon glyphicon-log-out'></span> Upload
         </Link>
       </div>
 
-      <div className="container">
-        <div className="card border-success mt-5" id="pageTitle">
-          <h1 className="card-header" id="title">
+      <div className='container'>
+        <div className='card border-success mt-5' id='pageTitle'>
+          <h1 className='card-header' id='title'>
             Photo Gallery
           </h1>
         </div>
-        <hr className="mt-2 mb-5" />
-        <div className="row" id="imageArea">
-          <div className="col-md-4" id="0col"></div>
+        <hr className='mt-2 mb-5' />
+        <div className='row' id='imageArea'>
+          <div className='col-md-4' id='0col'></div>
 
-          <div className="col-md-4" id="1col"></div>
+          <div className='col-md-4' id='1col'></div>
 
-          <div className="col-md-4" id="2col"></div>
+          <div className='col-md-4' id='2col'></div>
         </div>
       </div>
 
-      <div className="container"></div>
+      <div className='container'></div>
     </div>
   );
 }

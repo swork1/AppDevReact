@@ -2,6 +2,8 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { Alert } from "react-bootstrap";
+import PaddedTextField from "./PaddedTextField";
+import Button from "@material-ui/core/Button";
 import "./LoginPage.css";
 
 function LoginPage() {
@@ -43,19 +45,23 @@ function LoginPage() {
           <div className='card-body' id='loginFormBody'>
             <div className='form-group'>
               <form id='target' onSubmit={login}>
-                <input
-                  className='form-control'
-                  type='email'
-                  id='username'
-                  placeholder='Email'
-                  onChange={(e) => setUsername(e.target.value)}
+                <PaddedTextField
+                  textFieldProps={{
+                    label: "Email",
+                    variant: "outlined",
+                    type: "email",
+                    required: true,
+                    onChange: (e) => setUsername(e.target.value),
+                  }}
                 />
-                <input
-                  className='form-control'
-                  type='password'
-                  id='password'
-                  placeholder='Password'
-                  onChange={(e) => setPassword(e.target.value)}
+                <PaddedTextField
+                  textFieldProps={{
+                    label: "Password",
+                    variant: "outlined",
+                    type: "password",
+                    required: true,
+                    onChange: (e) => setPassword(e.target.value),
+                  }}
                 />
                 <input
                   className='btn mt-3'
@@ -63,11 +69,19 @@ function LoginPage() {
                   value='Login'
                   id='loginBtn'
                 />
+                <label htmlFor='loginBtn'>
+                  <Button variant='contained' color='default' component='span'>
+                    Login
+                  </Button>
+                </label>
               </form>
-
-              <h3 className='card-header' id='noAcc'>
+              <h3 className='card-header loginCreateAcc'>
                 Don't have an account?{" "}
-                <Link to='/create'> Create an account </Link>{" "}
+                <Button color='primary'>
+                  <Link to='/create' id='loginCreateLink'>
+                    Create an account
+                  </Link>
+                </Button>
               </h3>
             </div>
           </div>
