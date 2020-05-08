@@ -9,47 +9,50 @@ function UploadPage() {
   let history = useHistory();
 
   useEffect(() => {
-    //Function that authenticates user by checking if token is valid
-    function authenticate() {
-      var token = window.localStorage.getItem("token");
+    //Authentication
+    var token = window.localStorage.getItem("token");
 
-      axios
-        .get("api/status", { headers: { "X-Auth": token } })
-        .then((res) => {
-          var username = res.data.uid;
-          document.getElementById("username").value = username;
-        })
-        .catch((error) => {
-          if (
-            window.confirm(
-              'You are not allowed to access this page. Click "ok" or "cancel" to return to the login page.'
-            )
-          ) {
-            history.push("/");
-          } else {
-            history.push("/");
-          }
-        });
-    }
-
-    authenticate();
-  });
+    axios
+      .get("api/status", { headers: { "X-Auth": token } })
+      .then((res) => {
+        var username = res.data.uid;
+        document.getElementById("username").value = username;
+      })
+      .catch((error) => {
+        if (
+          window.confirm(
+            'You are not allowed to access this page. Click "ok" or "cancel" to return to the login page.'
+          )
+        ) {
+          history.push("/");
+        } else {
+          history.push("/");
+        }
+      });
+  }, []);
 
   return (
     <div>
-      <div id='logoutBtnDiv'>
-        <Link to='/' className='btn btn-info btn-lg' id='logoutBtn'>
-          <span className='glyphicon glyphicon-log-out'></span> Log out
-        </Link>
-      </div>
+      <Link to='/' className='btnLink'>
+        <Button
+          variant='contained'
+          color='secondary'
+          onClick={() => {
+            window.localStorage.removeItem("token");
+          }}>
+          Log Out
+        </Button>
+      </Link>
 
       <div id='homeBtnDiv'>
-        <Link to='/home' className='btn btn-info btn-lg' id='homeBtn'>
-          <span className='glyphicon glyphicon-log-out'></span> Home
+        <Link to='/home' className='btnLink'>
+          <Button variant='contained' color='primary'>
+            Home
+          </Button>
         </Link>
       </div>
       <div className='container' id='uploadForm'>
-        <div className='card border-success mt-5' id='uploadFormCard'>
+        <div className='card border-success' id='uploadFormCard'>
           <h1 className='card-header' id='uploadHeader'>
             Upload Image
           </h1>

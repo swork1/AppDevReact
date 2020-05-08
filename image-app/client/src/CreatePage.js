@@ -102,7 +102,7 @@ function CreatePage() {
               <h3 className='card-header loginCreateAcc'>
                 Already have an account?
                 <Button color='primary'>
-                  <Link to='/' id='loginCreateLink'>
+                  <Link to='/' className='btnLink'>
                     Login
                   </Link>
                 </Button>

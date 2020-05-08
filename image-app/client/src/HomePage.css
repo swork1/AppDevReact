@@ -1,46 +1,15 @@
-#logoutBtn {
-  background-color: #ee7600;
-  max-width: 125px;
-  height: 50px;
-}
-
-#logoutBtn:hover {
-  cursor: pointer;
-  background-color: #ee77008e;
-}
 .col-md-4 {
   height: auto;
 }
-
-.thumbnail {
-  margin-bottom: 5%;
-}
-
-img {
-  border-bottom: none;
-  border-top: 4px solid white;
-  border-right: 4px solid white;
-  border-left: 4px solid white;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  margin-bottom: 0;
+.popUpDialog {
+  text-align: center;
+  background-color: #fde1c7;
 }
 
 .imgText {
   color: orangered;
   font-size: 25px;
   text-align: center;
-}
-
-.caption {
-  border-top: none;
-  border-bottom: 4px solid white;
-  border-right: 4px solid white;
-  border-left: 4px solid white;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background: white;
-  padding-top: 5x;
 }
 
 .imgText:hover {
@@ -50,6 +19,9 @@ img {
 
 #title {
   text-align: center;
+}
+#pageTitle {
+  margin: 1em;
 }
 
 #imgBackBtn {
@@ -62,26 +34,10 @@ img {
   background-color: #ea655993;
 }
 
-#uploadBtnLink {
-  background-color: #a15fa9;
-  width: 200px;
-  height: 50px;
-}
-
-#uploadBtnLink:hover {
-  cursor: pointer;
-  background-color: #a25fa986;
-}
-
-#logoutBtnDiv {
-  display: block;
-  text-align: left;
-  margin: 10px;
-}
-#uploadBtnDiv {
+.uploadBtn {
+  margin: 1em;
   display: block;
   text-align: center;
-  margin: 10px;
 }
 
 @media only screen and (max-width: 800px) {

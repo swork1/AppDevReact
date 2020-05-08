@@ -21,7 +21,7 @@
   }
 }
 
-#loginCreateLink {
+button .btnLink {
   text-decoration: none;
   color: inherit;
 }

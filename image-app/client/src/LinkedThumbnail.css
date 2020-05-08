@@ -1,0 +1,19 @@
+.fullImage {
+  width: 80vw;
+  height: auto;
+}
+
+.thumbnailCard {
+  text-align: center;
+  margin: 0.1em;
+  margin-bottom: 0.2em;
+  max-width: 210px;
+}
+
+.MuiDialogContent-root {
+  background-color: #fde1c7;
+}
+
+div .backBtn {
+  margin: 1em;
+}
