@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import PaddedTextField from "./PaddedTextField";
-import Button from "@material-ui/core/Button";
+import { Button, Card, CardContent, Typography } from "@material-ui/core";
 import "./UploadPage.css";
 import axios from "axios";
 
@@ -52,12 +52,12 @@ function UploadPage() {
         </Link>
       </div>
       <div className='container' id='uploadForm'>
-        <div className='card border-success' id='uploadFormCard'>
-          <h1 className='card-header' id='uploadHeader'>
+        <Card id='uploadFormCard' variant='elevation'>
+          <Typography id='uploadHeader' variant='h3' component='h1'>
             Upload Image
-          </h1>
-          <div className='card-body' id='uploadFormBody'>
-            <div className='form-group'>
+          </Typography>
+          <CardContent>
+            <Typography>
               <form
                 action='/api/images'
                 method='post'
@@ -158,9 +158,9 @@ function UploadPage() {
                   </Button>
                 </label>
               </form>
-            </div>
-          </div>
-        </div>
+            </Typography>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

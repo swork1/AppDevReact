@@ -85,6 +85,7 @@ function HomePage() {
           alignItems='center'>
           {userImages.map((userImage) => (
             <LinkedThumbnail
+              key={userImage.filename}
               isPopover={false}
               imageData={userImage}
               onThumbnailClick={(imageData) => setPopUpImageData(imageData)}

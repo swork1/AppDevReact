@@ -77,11 +77,9 @@ function LoginPage() {
               </form>
               <h3 className='card-header loginCreateAcc'>
                 Don't have an account?{" "}
-                <Button color='primary'>
-                  <Link to='/create' className='btnLink'>
-                    Create an account
-                  </Link>
-                </Button>
+                <Link to='/create' className='btnLink'>
+                  <Button color='primary'>Create an account</Button>
+                </Link>
               </h3>
             </div>
           </div>
