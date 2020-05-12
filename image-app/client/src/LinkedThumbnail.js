@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Card } from "@material-ui/core";
+import { Grid, Card, CardContent, CardMedia } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import "./LinkedThumbnail.css";
 
@@ -23,34 +23,41 @@ const LinkedThumbnail = (props) => {
     <div>
       {isPopover === false ? (
         <Grid item xs onClick={() => onThumbnailClick(imageData)}>
-          <Card className='thumbnailCard'>
-            <img src={imageSource} />
-            <div className='caption'>{imageData.photo_name}</div>
+          <Card className="thumbnailCard" variant="elevation">
+            <CardContent className="thumbnailContent">
+              <CardMedia src={imageSource} component="img" />
+              <div className="caption">{imageData.photo_name}</div>
+            </CardContent>
           </Card>
         </Grid>
       ) : (
         <div>
-          <Card>
-            <Button
-              className='backBtn'
-              variant='contained'
-              color='primary'
-              onClick={onBack}>
-              Back
-            </Button>
-            <div>
-              <img src={fullImageSource} className='fullImage' />
-            </div>
-            <div className='imageInfoDiv'>
-              <div>Photo Name: {imageData.photo_name}</div>
-              <div>Album: {imageData.album}</div>
-              <div>Description: {imageData.description}</div>
-              <div>Camera: {imageData.camera}</div>
-              <div>fstop: {imageData.fstop}</div>
-              <div>sspeed: {imageData.sspeed}</div>
-              <div>ISO: {imageData.iso}</div>
-              <div>Focal Length: {imageData.focal_length}</div>
-            </div>
+          <Card variant="elevation">
+            <CardContent>
+              <Button
+                className="backBtn"
+                variant="contained"
+                color="primary"
+                onClick={onBack}
+              >
+                Back
+              </Button>
+              <CardMedia
+                src={fullImageSource}
+                className="fullImage"
+                component="img"
+              />
+              <div className="imageInfoDiv">
+                <div>Photo Name: {imageData.photo_name}</div>
+                <div>Album: {imageData.album}</div>
+                <div>Description: {imageData.description}</div>
+                <div>Camera: {imageData.camera}</div>
+                <div>fstop: {imageData.fstop}</div>
+                <div>sspeed: {imageData.sspeed}</div>
+                <div>ISO: {imageData.iso}</div>
+                <div>Focal Length: {imageData.focal_length}</div>
+              </div>
+            </CardContent>
           </Card>
         </div>
       )}

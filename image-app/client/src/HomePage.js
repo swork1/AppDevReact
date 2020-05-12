@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import {
   Grid,
   Button,
@@ -9,10 +9,10 @@ import {
   Card,
   CardContent,
   Typography,
-} from '@material-ui/core';
-import axios from 'axios';
-import LinkedThumbnail from './LinkedThumbnail';
-import './HomePage.css';
+} from "@material-ui/core";
+import axios from "axios";
+import LinkedThumbnail from "./LinkedThumbnail";
+import "./HomePage.css";
 
 function HomePage() {
   const [userImages, setUserImages] = React.useState([]);
@@ -22,10 +22,10 @@ function HomePage() {
 
   useEffect(() => {
     //Authentication
-    var token = window.localStorage.getItem('token');
+    var token = window.localStorage.getItem("token");
 
     axios
-      .get('api/status', { headers: { 'X-Auth': token } })
+      .get("api/status", { headers: { "X-Auth": token } })
       .then((res) => {
         var username = res.data.uid;
         setImages(username);
@@ -36,9 +36,9 @@ function HomePage() {
             'You are not allowed to access this page. Click "ok" or "cancel" to return to the login page.'
           )
         ) {
-          history.push('/');
+          history.push("/");
         } else {
-          history.push('/');
+          history.push("/");
         }
       });
   }, []);
@@ -46,7 +46,7 @@ function HomePage() {
   function setImages(username) {
     // load the image information from the database
     // Change for thumbnails?
-    axios.get('/api/images').then((res) => {
+    axios.get("/api/images").then((res) => {
       var data = res.data;
 
       const newUserImages = [];
@@ -64,37 +64,35 @@ function HomePage() {
 
   return (
     <div>
-      <Link to='/' className='btnLink'>
+      <Link to="/" className="btnLink">
         <Button
-          variant='contained'
-          color='secondary'
+          variant="contained"
+          color="secondary"
           onClick={() => {
-            window.localStorage.removeItem('token');
+            window.localStorage.removeItem("token");
           }}
         >
           Log Out
         </Button>
       </Link>
-      <div className='uploadBtn'>
-        <Link to='/upload' className='btnLink'>
-          <Button variant='contained' color='primary'>
+      <div className="uploadBtn">
+        <Link to="/upload" className="btnLink">
+          <Button variant="contained" color="primary">
             Upload
           </Button>
         </Link>
       </div>
       <Container>
-        <Card variant='elevation' id='pageTitle'>
-          <CardContent>
-            <Typography id='title' variant='h3'>
-              Photo Gallery
-            </Typography>
-          </CardContent>
+        <Card variant="elevation" id="pageTitle">
+          <Typography id="title" variant="h3">
+            Photo Gallery
+          </Typography>
         </Card>
         <Grid
           container
-          direction='row'
-          justify='space-evenly'
-          alignItems='center'
+          direction="row"
+          justify="space-evenly"
+          alignItems="center"
         >
           {userImages.map((userImage) => (
             <LinkedThumbnail
@@ -109,7 +107,7 @@ function HomePage() {
           open={popUpImageData}
           onClose={() => setPopUpImageData(undefined)}
           fullScreen={true}
-          className='popUpDialog'
+          className="popUpDialog"
         >
           <DialogContent>
             <LinkedThumbnail
