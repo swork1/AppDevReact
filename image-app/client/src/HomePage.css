@@ -19,9 +19,12 @@
 
 #title {
   text-align: center;
+  font-size: 3em;
 }
+
 #pageTitle {
   margin: 1em;
+  background-color: #fde1c7;
 }
 
 #imgBackBtn {
@@ -41,9 +44,6 @@
 }
 
 @media only screen and (max-width: 800px) {
-  #title {
-    font-size: 30px;
-  }
   #imageArea {
     text-align: center;
     margin: 10px auto;

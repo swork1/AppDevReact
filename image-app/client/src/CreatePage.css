@@ -17,15 +17,6 @@
   background-color: whitesmoke;
 }
 
-@media only screen and (max-width: 550px) {
-  #createHeader {
-    font-size: 30px;
-  }
-}
-
-.loginCreateAcc {
-  font-size: 14px;
-  text-align: center;
-  background-color: transparent;
-  border: none;
+div .loginCreateAcc {
+  margin-top: 0.4em;
 }

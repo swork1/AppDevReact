@@ -1,26 +1,14 @@
-.fileButton {
+div .fileButton {
   margin: 1em;
 }
 
 #fileUpload:hover {
   cursor: pointer;
 }
-
-#uploadHeader {
-  padding: 0.2em;
-  text-align: center;
-  background-color: #fde1c7;
-}
-
 #uploadForm {
   max-width: 600px;
   height: 500px;
   text-align: center;
-}
-
-#uploadFormCard {
-  background-color: whitesmoke;
-  margin-top: 1em;
 }
 
 #uploadBtn {
@@ -31,12 +19,6 @@
   display: block;
   text-align: center;
   margin: 1em;
-}
-
-@media only screen and (max-width: 550px) {
-  #uploadHeader {
-    font-size: 30px;
-  }
 }
 
 div .btnLink {

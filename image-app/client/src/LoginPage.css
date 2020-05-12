@@ -1,6 +1,13 @@
-#loginHeader {
+div .formHeader {
+  padding: 0.2em;
   text-align: center;
   background-color: #fde1c7;
+  font-size: 3em;
+}
+
+div .formCard {
+  background-color: whitesmoke;
+  margin-top: 1em;
 }
 
 #loginForm {
@@ -8,17 +15,9 @@
   height: 500px;
   text-align: center;
 }
-#loginFormCard {
-  background-color: whitesmoke;
-}
 
 #loginBtn {
   display: none;
-}
-@media only screen and (max-width: 550px) {
-  #loginHeader {
-    font-size: 30px;
-  }
 }
 
 button .btnLink {

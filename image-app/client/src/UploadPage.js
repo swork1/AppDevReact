@@ -1,22 +1,28 @@
-import React, { useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import PaddedTextField from "./PaddedTextField";
-import { Button, Card, CardContent, Typography } from "@material-ui/core";
-import "./UploadPage.css";
-import axios from "axios";
+import React, { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import PaddedTextField from './PaddedTextField';
+import {
+  Button,
+  Card,
+  CardContent,
+  Typography,
+  Container,
+} from '@material-ui/core';
+import './UploadPage.css';
+import axios from 'axios';
 
 function UploadPage() {
   let history = useHistory();
 
   useEffect(() => {
     //Authentication
-    var token = window.localStorage.getItem("token");
+    var token = window.localStorage.getItem('token');
 
     axios
-      .get("api/status", { headers: { "X-Auth": token } })
+      .get('api/status', { headers: { 'X-Auth': token } })
       .then((res) => {
         var username = res.data.uid;
-        document.getElementById("username").value = username;
+        document.getElementById('username').value = username;
       })
       .catch((error) => {
         if (
@@ -24,9 +30,9 @@ function UploadPage() {
             'You are not allowed to access this page. Click "ok" or "cancel" to return to the login page.'
           )
         ) {
-          history.push("/");
+          history.push('/');
         } else {
-          history.push("/");
+          history.push('/');
         }
       });
   }, []);
@@ -38,8 +44,9 @@ function UploadPage() {
           variant='contained'
           color='secondary'
           onClick={() => {
-            window.localStorage.removeItem("token");
-          }}>
+            window.localStorage.removeItem('token');
+          }}
+        >
           Log Out
         </Button>
       </Link>
@@ -51,9 +58,9 @@ function UploadPage() {
           </Button>
         </Link>
       </div>
-      <div className='container' id='uploadForm'>
-        <Card id='uploadFormCard' variant='elevation'>
-          <Typography id='uploadHeader' variant='h3' component='h1'>
+      <Container id='uploadForm'>
+        <Card className='formCard' variant='elevation'>
+          <Typography className='formHeader' variant='h3'>
             Upload Image
           </Typography>
           <CardContent>
@@ -61,89 +68,88 @@ function UploadPage() {
               <form
                 action='/api/images'
                 method='post'
-                encType='multipart/form-data'>
+                encType='multipart/form-data'
+              >
                 <input
                   className='form-control'
                   type='hidden'
                   name='username'
                   id='username'
                 />
-                <div className='fileButton'>
-                  <Button>
-                    <input
-                      type='file'
-                      accept='image/*'
-                      name='photo'
-                      required='required'
-                      id='fileUpload'
-                    />
-                  </Button>
-                </div>
+                <Button className='fileButton'>
+                  <input
+                    type='file'
+                    accept='image/*'
+                    name='photo'
+                    required='required'
+                    id='fileUpload'
+                  />
+                </Button>
                 <PaddedTextField
                   disableIsBlock
                   textFieldProps={{
-                    variant: "outlined",
-                    name: "photoName",
+                    variant: 'outlined',
+                    name: 'photoName',
                     required: true,
-                    label: "Photo Name",
+                    label: 'Photo Name',
                   }}
                 />
                 <PaddedTextField
                   disableIsBlock
                   textFieldProps={{
-                    variant: "outlined",
-                    name: "album",
+                    variant: 'outlined',
+                    name: 'album',
                     required: true,
-                    label: "Photo Album",
+                    label: 'Photo Album',
                   }}
                 />
                 <PaddedTextField
                   disableIsBlock
                   textFieldProps={{
-                    variant: "outlined",
-                    name: "description",
+                    variant: 'outlined',
+                    name: 'description',
                     required: true,
-                    label: "Description",
+                    label: 'Description',
                   }}
                 />
                 <PaddedTextField
                   disableIsBlock
                   textFieldProps={{
-                    variant: "outlined",
-                    name: "camera",
-                    label: "Camera Used",
+                    variant: 'outlined',
+                    name: 'camera',
+                    label: 'Camera Used',
                   }}
                 />
                 <PaddedTextField
                   disableIsBlock
                   textFieldProps={{
-                    variant: "outlined",
-                    name: "fstop",
-                    label: "f-stop",
+                    variant: 'outlined',
+                    name: 'fstop',
+                    label: 'f-stop',
                   }}
                 />
                 <PaddedTextField
                   disableIsBlock
                   textFieldProps={{
-                    variant: "outlined",
-                    name: "sspeed",
-                    label: "s-speed",
+                    variant: 'outlined',
+                    name: 'sspeed',
+                    label: 's-speed',
                   }}
                 />
                 <PaddedTextField
                   disableIsBlock
                   textFieldProps={{
-                    variant: "outlined",
-                    name: "iso",
-                    label: "ISO",
+                    variant: 'outlined',
+                    name: 'iso',
+                    label: 'ISO',
                   }}
                 />
                 <PaddedTextField
                   disableIsBlock
                   textFieldProps={{
-                    variant: "outlined",
-                    name: "focal_length",
-                    label: "Focal Length",
+                    variant: 'outlined',
+                    name: 'focal_length',
+                    label: 'Focal Length',
                   }}
                 />
                 <input
@@ -153,7 +159,7 @@ function UploadPage() {
                   id='uploadBtn'
                 />
                 <label htmlFor='uploadBtn'>
-                  <Button variant='contained' color='default' component='span'>
+                  <Button variant='contained' color='default'>
                     Upload
                   </Button>
                 </label>
@@ -161,7 +167,7 @@ function UploadPage() {
             </Typography>
           </CardContent>
         </Card>
-      </div>
+      </Container>
     </div>
   );
 }
